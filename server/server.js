@@ -2,10 +2,17 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 
+const snapshotController = require('./controllers/snapshotController');
+
 const app = express();
 
-const mongoURI = 'mongodb://localhost/nwt';
-mongoose.connect(mongoURI);
+app.get('/snapshots', snapshotController.getAllSnapshots, (req, res) => {
+  return res.status(200).json(res.locals.snapshots);
+});
+
+app.post('/snapshots', snapshotController.createSnapshot, (req, res) => {
+  res.redirect('/snapshots');
+});
 
 app.use('/build', express.static(path.join(__dirname, '../build')));
 

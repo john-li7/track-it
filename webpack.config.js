@@ -27,8 +27,8 @@ module.exports = {
   },
   devServer: {
     publicPath: '/build/',
-    // proxy: {
-    //   '*': 'http://localhost:3000',
-    // },
+    proxy: {
+      '/snapshots': 'http://localhost:3000',
+    },
   },
 };
