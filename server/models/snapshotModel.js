@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+require('dotenv').config();
 
-const MONGO_URI =
-  'mongodb+srv://dbUser1:mTuDvn0VzVogyNzJ@cluster0.irvdv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const MONGO_URI = process.env.mongoURI;
 
 mongoose
   .connect(MONGO_URI, {
