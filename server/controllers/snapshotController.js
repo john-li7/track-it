@@ -74,7 +74,7 @@ snapshotController.createSnapshot = (req, res, next) => {
     (err, snapshot) => {
       if (err) {
         next(
-          'Error in snapshotController.createSnapshot: ',
+          // 'Error in snapshotController.createSnapshot: ',
           JSON.stringify(err)
         );
       }

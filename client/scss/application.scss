@@ -1,4 +1,76 @@
+$black: #22292f;
+
 body {
   //   background: #fffffc;
-  background: #fbb13c;
+  // background: #fbb13c;
+  background: #a9e5bb;
+  padding: 4px;
+}
+
+// .form {
+//   background-color: darken(#fffffc, 1%);
+//   width: 420px;
+//   padding: 4px;
+//   border-radius: 3px;
+//   border: 0.5px solid lightgray;
+// }
+
+.block {
+  display: flex;
+  width: 350px;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+.submit {
+  width: 265px;
+  text-align: right;
+}
+
+// .classification {
+// border: px solid black;
+// border-radius: 1.5%;
+// background-color: #98a6d4;
+// width: 400px;
+// padding: 10px;
+// }
+
+h4 {
+  margin-top: 0px;
+  margin-bottom: 2.8px;
+  border-radius: 3px;
+  background-color: #c89f9c;
+  width: 370px;
+  padding: 7px;
+}
+
+h5 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-weight: 600;
+  font-size: 15;
+  color: lighten(black, 15%);
+  // border-radius: 3px;
+  // background-color: #98a6d4;
+  // width: 400px;
+  // padding: 5px;
+}
+
+.subcategory {
+  margin-top: 1px;
+  border-radius: 3px;
+  background-color: #98a6d4;
+  width: 370px;
+  padding: 7px;
+  padding-bottom: 10px;
+  margin-bottom: 3px;
+}
+
+input {
+  border: 1px solid lighten($black, 50%);
+  border-radius: 2px;
+}
+
+#date {
+  // font-family: 'Helvetica';
 }
