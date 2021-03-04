@@ -14,8 +14,8 @@ app.get('/snapshots', snapshotController.getAllSnapshots, (req, res) => {
 
 app.post('/snapshots', snapshotController.createSnapshot, (req, res) => {
   // res.redirect('/snapshots'); //does not work with react router
-  // return res.status(200);
-  return res.redirect('/');
+  return res.status(200).send();
+  // return res.redirect('/');
 });
 
 // to only run build and get static when in production, not development

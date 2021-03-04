@@ -1,10 +1,10 @@
 import React from 'react';
 import Form from './Form';
 
-const Home = () => (
+const Home = (props) => (
   <div>
     <p>Welcome back, John!</p>
-    <Form />
+    <Form saveSnapshot={props.saveSnapshot} newSnapshot={props.newSnapshot} />
   </div>
 );
 

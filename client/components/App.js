@@ -10,8 +10,39 @@ class App extends Component {
     super(props);
     this.state = {
       snapshots: [],
+      newSnapshot: false,
+      latestSnapshot: {},
     };
+    this.saveSnapshot = this.saveSnapshot.bind(this);
   }
+
+  saveSnapshot(submitData) {
+    console.log('saveSnapshot fired ', submitData);
+    this.setState((prevState) => {
+      return { newSnapshot: true };
+    });
+  }
+
+  // componentDidMount() {
+  //   console.log('componentDidMount fired');
+  //   console.log('this.state.newSnapshot ', this.state.newSnapshot);
+  //   if (this.state.newSnapshot) {
+  //     fetch('/snapshots')
+  //       .then((res) => res.json())
+  //       .then((snapshots) => {
+  //         if (!Array.isArray(snapshots)) snapshots = [];
+  //         return this.setState({
+  //           snapshots,
+  //         });
+  //       })
+  //       .catch((err) =>
+  //         console.log(
+  //           'Snapshots.componentDidMount: get snapshots: ERROR: ',
+  //           err
+  //         )
+  //       );
+  //   }
+  // }
 
   render() {
     return (
@@ -25,10 +56,13 @@ class App extends Component {
 
           <Switch>
             <Route path="/snapshots">
-              <Snapshots snapshots={this.state.snapshots} />
+              <Snapshots />
             </Route>
             <Route path="/">
-              <Home />
+              <Home
+                displaySnapshot={this.displaySnapshot}
+                newSnapshot={this.newSnapshot}
+              />
             </Route>
           </Switch>
         </div>

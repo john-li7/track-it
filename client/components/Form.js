@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Form = () => (
+const Form = ({ saveSnapshot, newSnapshot }) => (
   <div className="form">
     <h3>Let's take a snapshot of your finances:</h3>
     <div>
-      <form method="POST" action="/snapshots">
+      <div>
         <section className="subcategory">
           <div className="block">
             <label for="date">Date </label>
@@ -93,10 +93,12 @@ const Form = () => (
           </section>
         </div>
         <br></br>
-        <div className="submit">
-          <input type="submit" value="Submit" />
+        <div className="createSnapshot">
+          <button type="button" onClick={saveSnapshot}>
+            Submit
+          </button>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 );
