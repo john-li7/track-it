@@ -7,13 +7,15 @@ body {
   padding: 4px;
 }
 
-// .form {
-//   background-color: darken(#fffffc, 1%);
-//   width: 420px;
-//   padding: 4px;
-//   border-radius: 3px;
-//   border: 0.5px solid lightgray;
-// }
+.card {
+  background-color: darken(#fffffc, 1%);
+  width: 200px;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid black;
+  margin-top: 10px;
+  margin-left: 10px;
+}
 
 .block {
   display: flex;
@@ -22,7 +24,7 @@ body {
   margin-top: 2px;
 }
 
-.submit {
+.createSnapshot {
   width: 265px;
   text-align: right;
 }
@@ -54,6 +56,10 @@ h5 {
   // background-color: #98a6d4;
   // width: 400px;
   // padding: 5px;
+}
+
+#nw {
+  font-weight: 1000;
 }
 
 .subcategory {

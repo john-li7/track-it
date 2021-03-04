@@ -7,16 +7,24 @@ const snapshotController = require('./controllers/snapshotController');
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.get('/snapshots', snapshotController.getAllSnapshots, (req, res) => {
   return res.status(200).json(res.locals.snapshots);
 });
 
-app.post('/snapshots', snapshotController.createSnapshot, (req, res) => {
-  // res.redirect('/snapshots'); //does not work with react router
-  return res.status(200).send();
-  // return res.redirect('/');
-});
+app.post(
+  '/snapshots',
+  snapshotController.createSnapshot,
+  snapshotController.getAllSnapshots,
+  (req, res) => {
+    // res.redirect('/snapshots'); //does not work with react router
+    return res
+      .status(200)
+      .json(res.locals.snapshots[res.locals.snapshots.length - 1]);
+    // return res.redirect('/');
+  }
+);
 
 // to only run build and get static when in production, not development
 app.use('/build', express.static(path.join(__dirname, '../build')));

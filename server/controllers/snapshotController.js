@@ -28,8 +28,8 @@ snapshotController.getAllSnapshots = (req, res, next) => {
 };
 
 snapshotController.createSnapshot = (req, res, next) => {
-  // console.log('createSnapshot fired');
-  // console.log('req.body:', req.body);
+  console.log('createSnapshot fired');
+  console.log('req.body:', req.body);
   const {
     date,
     checkings,

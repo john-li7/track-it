@@ -91,7 +91,7 @@ class Snapshots extends Component {
     );
     return (
       <div>
-        <p>See below your snapshots to date, keep up the great work!</p>
+        <p>Your journey to date, keep up the great work!</p>
         <div className="snapshotContainer">{renderLineChart}</div>
       </div>
     );

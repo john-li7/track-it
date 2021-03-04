@@ -16,11 +16,53 @@ class App extends Component {
     this.saveSnapshot = this.saveSnapshot.bind(this);
   }
 
-  saveSnapshot(submitData) {
-    console.log('saveSnapshot fired ', submitData);
-    this.setState((prevState) => {
-      return { newSnapshot: true };
-    });
+  saveSnapshot() {
+    console.log('saveSnapshot fired ');
+    const date = document.getElementById('date').value;
+    const checkings = document.getElementById('checkings').value;
+    const savings = document.getElementById('savings').value;
+    const brokerage = document.getElementById('brokerage').value;
+    const ra401k = document.getElementById('ra401k').value;
+    const rothIRA = document.getElementById('rothIRA').value;
+    const ccDebt = document.getElementById('ccDebt').value;
+    const homeMortgage = document.getElementById('homeMortgage').value;
+    const carLoans = document.getElementById('carLoans').value;
+    const studentLoans = document.getElementById('studentLoans').value;
+    const body = {
+      date: date,
+      checkings: Number(checkings),
+      savings: Number(savings),
+      brokerage: Number(brokerage),
+      ra401k: Number(ra401k),
+      rothIRA: Number(rothIRA),
+      ccDebt: Number(ccDebt),
+      homeMortgage: Number(homeMortgage),
+      carLoans: Number(carLoans),
+      studentLoans: Number(studentLoans),
+    };
+    console.log(body);
+    fetch('/snapshots', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'Application/JSON',
+      },
+      body: JSON.stringify(body),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log('data: ', data);
+        this.setState({ latestSnapshot: { data }, newSnapshot: true });
+      })
+      .then(() => {
+        console.log(this.state);
+      })
+      .catch((err) =>
+        console.log('Create snapshot fetch /snapshots: ERROR: ', err)
+      );
+
+    // this.setState((prevState) => {
+    //   newSnapshot=
+    // });
   }
 
   // componentDidMount() {
@@ -60,8 +102,9 @@ class App extends Component {
             </Route>
             <Route path="/">
               <Home
-                displaySnapshot={this.displaySnapshot}
-                newSnapshot={this.newSnapshot}
+                saveSnapshot={this.saveSnapshot}
+                newSnapshot={this.state.newSnapshot}
+                latestSnapshot={this.state.latestSnapshot}
               />
             </Route>
           </Switch>

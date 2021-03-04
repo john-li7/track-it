@@ -16,7 +16,7 @@ mongoose
   .catch((err) => console.log(err));
 
 const snapshotSchema = new Schema({
-  date: { type: Date, required: true },
+  date: { type: Date },
   checkings: { type: Number, default: 0 },
   savings: { type: Number, default: 0 },
   brokerage: { type: Number, default: 0 },
