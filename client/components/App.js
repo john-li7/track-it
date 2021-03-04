@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import Form from './Form';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Home from './Home';
+import Snapshots from './Snapshots';
 
 import styles from '../scss/application.scss';
 
@@ -9,14 +10,9 @@ function App() {
     <Router>
       <div>
         <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/snapshots">Snapshots</Link>
-            </li>
-          </ul>
+          <Link to="/">Home</Link>
+          <span> </span>
+          <Link to="/snapshots">Snapshots</Link>
         </nav>
 
         <Switch>
@@ -29,23 +25,6 @@ function App() {
         </Switch>
       </div>
     </Router>
-  );
-}
-
-function Home() {
-  return (
-    <div>
-      <p>Welcome back, John!</p>
-      <Form />
-    </div>
-  );
-}
-
-function Snapshots() {
-  return (
-    <div>
-      <p>See below your snapshots to date, keep up the great work!</p>
-    </div>
   );
 }
 

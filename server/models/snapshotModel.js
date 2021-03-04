@@ -26,6 +26,9 @@ const snapshotSchema = new Schema({
   homeMortgage: { type: Number, default: 0 },
   carLoans: { type: Number, default: 0 },
   studentLoans: { type: Number, default: 0 },
+  totalAssets: { type: Number },
+  totalLiabilities: { type: Number },
+  netWorth: { type: Number },
 });
 
 module.exports = mongoose.model('Snapshot', snapshotSchema);
